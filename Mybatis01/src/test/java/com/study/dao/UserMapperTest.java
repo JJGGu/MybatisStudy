@@ -20,10 +20,12 @@ public class UserMapperTest {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
 
         //方式一
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        List<User> users = userMapper.getUsers();
+//        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+//        List<User> users = userMapper.getUsers();
 
-        for (User user : users) {
+        //方式二
+        List<User> userList = sqlSession.selectList("com.study.dao.UserMapper.getUsers");
+        for (User user : userList) {
             System.out.println(user);
         }
 
