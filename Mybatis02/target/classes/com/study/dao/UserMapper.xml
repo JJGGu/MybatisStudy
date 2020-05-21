@@ -29,4 +29,8 @@
     <select id="getLikeUser" parameterType="String" resultType="com.study.pojo.User">
         select * from user where name like #{name}
     </select>
+
+    <select id="getUsersLimit" parameterType="map" resultType="user">
+        select * from user limit #{startIndex},#{pageSize}
+    </select>
 </mapper>

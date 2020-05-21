@@ -13,5 +13,7 @@ public interface UserMapper {
 
     void insertUser2(Map<String, Object> map);
 
+    List<User> getUsersLimit(Map<String, Integer> map);
+
     List<User> getLikeUser(String name);
 }

@@ -48,4 +48,20 @@ public class UserMapperTest {
         logger.error("error");
 
     }
+
+    @Test
+    public void getUsersLimit(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        map.put("startIndex", 1);
+        map.put("pageSize", 4);
+        List<User> users = mapper.getUsersLimit(map);
+        for (User user : users) {
+            System.out.println(user);
+        }
+        sqlSession.close();
+    }
 }
