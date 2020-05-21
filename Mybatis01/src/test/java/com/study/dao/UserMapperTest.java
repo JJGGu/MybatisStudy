@@ -6,7 +6,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @program: MybatisStudy
@@ -67,6 +69,36 @@ public class UserMapperTest {
         userMapper.updateUser(new User(6, "hhh", "11111"));
         sqlSession.commit();
 
+        sqlSession.close();
+    }
+
+    @Test
+    public void insertUser2(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        map.put("id", 7);
+        map.put("name", "JJGGu");
+        map.put("password", "1233332");
+        mapper.insertUser2(map);
+
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    @Test
+    public void selectLikeId(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<User> likeUser = mapper.getLikeUser("%E%");
+
+        for (User user : likeUser) {
+            System.out.println(user);
+        }
+        System.out.println("OK");
         sqlSession.close();
     }
 }
