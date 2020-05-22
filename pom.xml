@@ -13,6 +13,7 @@
         <module>Mybatis01</module>
         <module>Mybatis02</module>
         <module>Mybatis03</module>
+        <module>Mybatis04</module>
     </modules>
 
     <!--导入依赖-->
@@ -52,6 +53,15 @@
             <version>1.18.10</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.2.0.RELEASE</version>
+        </dependency>
+
+
+
     </dependencies>
 
     <build>
@@ -64,14 +74,14 @@
                     <include>**/*.properties</include>
                 </includes>
             </resource>
-            <resource>
+            <!--<resource>
                 <directory>src/main/java</directory>
                 <filtering>true</filtering>
                 <includes>
                     <include>**/*.properties</include>
                     <include>**/*.xml</include>
                 </includes>
-            </resource>
+            </resource>-->
         </resources>
 
     </build>
